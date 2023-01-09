@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        "use strict";
+
+
+        // ЧАСТЬ 2 учебника. Задачи.
+
+        /*
+        let name = prompt("Введите имя:","Вася");
+
+        alert(name);
+        */
+
+        // -----------------------------------------------------
+
+        /*
+        let a = +prompt("Первое число?", 1);
+        let b = +prompt("Второе число?", 2);
+
+        alert(a + b); 
+        */
+
+        // ----------------------------------------------------------
+
+        /*
+        let name = prompt("Какое «официальное» название JavaScript?","ECMAScript");
+
+        if (name === "ECMAScript") {
+            alert("Верно!");
+        } else {
+            alert("«Не знаете? ECMAScript!»");
+        }
+        */
+
+        // ------------------------------------------------------------
+
+        /*
+        let numb = prompt("Введите число:");
+
+        if (numb < 0) {
+            alert("-1");
+        } else if (numb > 0) {
+            alert("1");
+        } else if (numb === 0) {
+            alert("0");
+        }
+        */
+
+        // -------------------------------------
+
+        /*
+        let result;
+
+        let a = +prompt("Введите a:");
+        let b = +prompt("Введите b:");
+
+        (a + b < 4) ? result = 'Мало': result = 'Много';
+        alert(result);
+        */
+
+        // --------------------------------------
+
+        /*
+        let message;
+
+        let login = prompt("Ваш логин:","Сотрудник")
+
+        message = (login == 'Сотрудник') ? 'Привет' : (login == 'Директор') ? 'Здравствуйте' : (login == '') ? 'Нет логина' : '' ;
+
+        alert(message);
+        */
+
+        // -------------------------------------
+
+        /*
+        let login = prompt("Кто там?");
+
+        if (login === "Админ") {
+
+            let pass = prompt("Пароль?");
+
+            if (pass ==="Я Главный") {
+                alert("Здравствуйте!");
+
+            } else if (pass === "" || pass === null) {
+                alert("Отменено");
+
+            } else {
+                alert("Неверный пароль");
+            }
+
+        } else if (login === "" || login === null) {
+            alert("Отменено");
+
+        } else {
+            alert("Я вас не знаю");
+        }
+        */
+
+        // ----------------------------------------------------------
+
+
+        /*
+        for (let i=2; i<=10; ++i) {
+            if (i % 2 === 0) {
+                alert(i);
+            }
+        }
+        */
+
+        // ----------------------------------------------------------
+
+        /*
+        let i = 0;
+        while (i < 3) {
+            alert( `number ${i}!` )
+            i++;
+        }
+        */
+
+        // -----------------------------------------------------------
+
+
+        /*
+        for (;;) {
+
+            let value = prompt("Введите число больше 100:");
+
+            if (value > 100 || value === null) {
+                break;
+            } 
+        }
+        */
+
+        // ----------------------------------------------------------
+
+
+        /*
+        let n = +prompt("Вывод простых чисел от 2 до n, Введите n:","10");
+
+        labl:
+        for (let i = 2; i <= n; i++) {
+
+    
+            for (let j = 2; j < i; j++) {
+
+                if (i % j === 0) {
+                   continue labl;
+                }
+               
+            }
+            alert(i);
+        }
+        */
+
+        // --------------------------------------------------------
+
+        /*
+        let nameBrowser = prompt("Введите название браузера","Chrome");
+
+        if (nameBrowser === 'Edge') {
+            alert( "You've got the Edge!" );
+
+        } else if (nameBrowser === 'Chrome' 
+        || nameBrowser === 'Firefox' 
+        || nameBrowser === 'Safari' 
+        || nameBrowser === 'Opera') {
+            alert( 'Okay we support these browsers too' );
+        } else {
+            alert( 'We hope that this page looks ok!' );
+        }
+        */
+
+
+        // ---------------------------------------------------------
+
+        /*
+        const number = +prompt('Введите число между 0 и 3', '');
+
+        switch (number) {
+            case(0):   
+                alert('Вы ввели число 0');
+                break;
+
+            case(1):
+                alert('Вы ввели число 1');
+                break;
+
+            case(2):
+            case(3):
+                alert('Вы ввели число 2, а может и 3');
+                break;
+        }
+        */
+
+        // ---------------------------------------------------------
+
+        /*
+        let age = prompt("Введите возраст:")
+
+        function checkAge(age) {
+            return (age > 18) ? true : confirm('Родители разрешили?');
+        }
+
+        alert(checkAge(age));
+        */
+
+        // ---------------------------------------------------------
+
+        /*
+        let age = prompt("Введите возраст:")
+
+        function checkAge(age) {
+            return (age > 18) || confirm('Родители разрешили?');
+        }
+
+        alert(checkAge(age));
+        */
+
+        // --------------------------------------------------------------
+
+
+        /*
+        let a = +prompt("Введите число a:");
+        let b = +prompt("Введите число b:");
+
+        function min(a,b) {
+           return (a < b) ? a : b ;
+        }
+
+        alert(min(a,b));
+        */
+
+        /*
+        let x = +prompt("Введите число x:")
+        let n = +prompt("Введите Степень n:")
+
+        function pow(x, n) {
+            for (let i = 1; i < n; i++) {
+                x *= x;
+            }
+            alert(x);
+        }
+        pow(x, n);
+        */
+
+        /*
+        let x = +prompt("Введите число x:")
+        let n = +prompt("Введите Степень n:")
+
+        function pow(x, n) {
+           
+            x = x**n;
+           return(x);
+        }
+        alert( pow(x, n) );     
+        */
+
+        // ------------------------------------------
+
+        /*
+        let age = 10;
+        let qwer;
+
+        if (age < 18) {
+            
+                          
+            function welcome() {     
+                alert("Привет!");      
+            }                           
+         
+        qwer = welcome;            
+
+        } else {
+
+            function welcome() {
+                alert("Здравствуйте!");
+            }
+  
+        qwer = welcome;
+
+        }
+
+        qwer(); 
+        */
+
+        // -------------------------------------------
+
+        let ask = (question, yes, no) => {
+            if (confirm(question)) yes()
+            else no();
+        }
+
+   
+
+        ask(
+            "Вы согласны?",
+            () => alert("Вы согласились.") ,
+            () => alert("Вы отменили выполнение.")
+        );
+
+
+
+
+
+    </script>
+</body>
+
+</html>
