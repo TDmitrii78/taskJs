@@ -1,3 +1,5 @@
+"use strict";
+
 /*
 const prici = 80;
 const hourDay = 5;
@@ -493,6 +495,8 @@ console.log(user2);
 
 // ------------------------------------------------------------
 
+/*
+
 const wallet = {
     balance: 0,
     operations: [],
@@ -537,3 +541,268 @@ console.log(wallet.expense(-900,"Оплата покупок"));
 
 console.log(wallet);
 
+*/
+
+// ------------------------------------------------------
+
+/*
+
+let num = 9;
+let numbr = 7;
+
+console.log(num);
+console.log(numbr);
+
+function numb(num) {
+    console.log(num);
+    num = 5;
+    numbr = 4;
+    console.log(num);
+}
+
+numb(num);
+
+console.log(num);
+console.log(numbr);
+*/
+
+// -------------------------------------------------
+
+
+/*
+let user = {
+    name: "Dima",
+    toString() {
+       return "ghgghg";
+    },
+    
+};
+let XXX;
+
+XXX = user;
+
+console.log(user + "text");
+
+*/
+
+// ----------------------------------------------------
+
+/*
+
+const man = {
+    name: 'John',
+    activity: { specialist: { engineer: 'tester' } },
+    slogan: () => { console.log('Is only forward!') }
+    };
+
+const man1 = {};
+    
+function clonObj(newObj, oldObj) {
+
+    for (let prop in oldObj) {
+
+        if (typeof oldObj[prop] === 'object') {
+
+            newObj[prop] = {};
+            clonObj(newObj[prop], oldObj[prop])
+
+        } else {
+
+            newObj[prop] = oldObj[prop]
+        };
+    };
+};
+
+clonObj(man1, man);
+
+console.log(man1);
+*/
+
+/*
+const man = {
+    name: 'John',
+    activity: { specialist: { engineer: 'tester' } },
+    slogan: () => { console.log('Is only forward!') }
+    };
+
+const newMan = {};
+
+function cloneObject(oldMan, clonMan) {
+    for (let key in oldMan) {
+        console.log(key);
+        clonMan[key] = oldMan[key];
+    }
+
+}
+
+cloneObject(man, newMan);
+
+
+console.log(man);
+
+console.log(newMan);
+
+console.log(newMan.activity.specialist.engineer);
+
+*/
+
+/*
+let arr1 = [1, 2, 3, 4];
+let arr2 = [1, 2, 3, 4];
+
+let newArr = [...arr1, ...arr2];
+console.log(newArr);
+*/
+
+// ----------------------------------------------------
+
+/*
+function changeBallance1() {
+   
+        let ballance = 50;
+        console.log(ballance);
+        
+        return function(sum) {
+            ballance += sum;
+            console.log(ballance);
+        }
+    }
+    const change1 = changeBallance1();
+    
+    
+    change1(100);
+    change1(150);
+*/
+// ------------------------------------------------------
+
+/*
+function changeBallance2(ballance) {
+   
+    console.log(ballance);
+
+    return function(sum) {
+        ballance += sum;
+        console.log(ballance);
+    }
+}
+const change2 = changeBallance2(50);
+
+
+change2(100);
+change2(150);
+
+
+*/
+// ---------------------------------------------------
+/*
+
+
+
+
+    function changeBallance3(ballance) {
+   
+            console.log(ballance);
+        
+            return (sum) => {
+                ballance += sum;
+                console.log(ballance);
+            }
+        }
+    const change3 = changeBallance3(50);
+
+
+        
+        
+    change3(100);
+    change3(150);
+
+*/
+// ---------------------------------------------------------
+
+   /*
+    let ballance = 50;
+    console.log(ballance);
+
+    function summ(sum) {
+        ballance += sum;
+        console.log(ballance);
+    }
+    
+    
+    summ(100);
+    console.log(ballance);
+
+    summ(150);
+    console.log(ballance);
+    */
+    // -----------------------------------------------
+    /*
+
+    const man = {
+        name: 'John',
+        activity: { specialist: { engineer: 'tester' } },
+        slogan: () => { console.log('Is only forward!') }
+        };
+    
+    const man1 = {};
+
+    function copyObj(cloneObj, originalObj) {
+
+        for (let key in originalObj) {
+            if (typeof(key) === "object") {
+                copyObj(,);
+            } else { 
+
+            cloneObj[key] = originalObj[key];
+            }
+        }
+
+    }
+    copyObj(man1, man);
+
+    console.log(man);
+    console.log(man1);
+
+    man.activity.specialist.engineer = 'programmer';
+
+    console.log(man);
+    console.log(man1);
+
+   */
+
+    // ----------------------------------------------
+/*
+
+const company = {
+    name: "ООО Рога и копыта",
+    employees: [
+        {
+            name: "Света",
+            nameEmployees: function() {
+                return this.name;
+            }
+        }
+    ],
+    ceo: {
+        name: "Вася",
+        nameSeo: function() {
+            return this.name;
+        },
+    },
+
+    nameCompany: function() {
+        return this.name;
+    },
+}
+
+console.log(company.nameCompany());
+console.log(company.ceo.nameSeo());
+console.log(company.employees[0].nameEmployees());
+console.log(company.employees.map(el => el.nameEmployees()
+));
+
+*/
+
+let arr =[1, 2, 3, 4];
+console.log(arr);
+console.log(...arr);
