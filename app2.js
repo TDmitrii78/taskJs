@@ -299,3 +299,71 @@ console.log(menu);
 //   height: 600,
 //   title: "My menu"
 // };
+
+// -----------------------------
+// Глубокое клонирование рекурсия
+
+let user = {
+  name: "John",
+  sizes: {
+    height: 182,
+    width: {
+      metr: 0.5,
+      centimeters: 50,
+    }
+  },
+  mass: {
+    asd: [1, {
+      qwer: [1, [1, 2, 3, [1, 2]], 3, {www: 123}],
+    }, 3],
+  }
+};
+
+let user2 = {};
+
+function deepClone(obj, clone) {
+  for (let key in obj) {
+
+    if (Array.isArray(obj[key])) {
+
+      let el = 0;
+      clone[key] = [];
+
+      for (let key2 of obj[key]) {
+
+        if (typeof(key2) === "object") {
+          deepClone(obj[key], clone[key]);
+
+        } else {
+          clone[key][el] = obj[key][el];
+        }
+
+      }
+      el++;
+
+    } else if (typeof(obj[key]) === "object") {
+
+      clone[key] = {};
+      deepClone(obj[key], clone[key]);
+
+    } else {
+
+      clone[key] = obj[key];
+
+    }
+  }
+}
+
+
+deepClone(user, user2);
+
+console.log(user.mass.asd[1].qwer[3].www);
+console.log(user2.mass.asd[1].qwer[3].www);
+
+user.mass.asd[1].qwer[3].www = 15;
+
+console.log(user.mass.asd[1].qwer[3].www);
+console.log(user2.mass.asd[1].qwer[3].www);
+
+console.log(user);
+console.log(user2);
