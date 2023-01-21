@@ -303,67 +303,194 @@ console.log(menu);
 // -----------------------------
 // Глубокое клонирование рекурсия
 
-let user = {
-  name: "John",
-  sizes: {
-    height: 182,
-    width: {
-      metr: 0.5,
-      centimeters: 50,
-    }
+// let user = {
+//   name: "John",
+//   sizes: {
+//     height: 182,
+//     width: {
+//       metr: 0.5,
+//       centimeters: 50,
+//     }
+//   },
+//   mass: {
+//     asd: [1, {
+//       qwer: [1, [1, 2, 3, [1, 2]], 3, {www: 123}],
+//     }, 3],
+//   },
+//   noName: function() {
+//     console.log("123");
+//     console.log(this.name);
+//   }
+// };
+
+// let user2 = {};
+
+// function deepClone(obj, clone) {
+//   for (let key in obj) {
+
+//     if (Array.isArray(obj[key])) {
+
+//       let el = 0;
+//       clone[key] = [];
+
+//       for (let key2 of obj[key]) {
+
+//         if (typeof(key2) === "object") {
+//           deepClone(obj[key], clone[key]);
+
+//         } else {
+//           clone[key][el] = obj[key][el];
+//         }
+
+//       }
+//       el++;
+
+//     } else if (typeof(obj[key]) === "object") {
+
+//       clone[key] = {};
+//       deepClone(obj[key], clone[key]);
+
+//     } else {
+
+//       clone[key] = obj[key];
+
+//     }
+//   }
+// }
+
+
+// deepClone(user, user2);
+
+// // ------ Меняем значение для проверки
+
+// console.log(user.mass.asd[1].qwer[3].www);
+// console.log(user2.mass.asd[1].qwer[3].www);
+
+// user.mass.asd[1].qwer[3].www = 15;
+
+// console.log(user.mass.asd[1].qwer[3].www);
+// console.log(user2.mass.asd[1].qwer[3].www);
+
+// console.log(user);
+// console.log(user2);
+
+// // ------ Меняем значение name для проверки.
+
+// user.noName();
+// user2.noName();
+
+// user.name = "Ivan";
+// user2.name = "Dima";
+
+// user.noName();
+// user2.noName();
+
+
+// -----------------------------------------------------------
+
+// Создайте объект calculator (калькулятор) с тремя методами:
+
+//     read() (читать) запрашивает два значения и сохраняет их как свойства объекта.
+//     sum() (суммировать) возвращает сумму сохранённых значений.
+//     mul() (умножить) перемножает сохранённые значения и возвращает результат.
+
+/*
+let calculator = {
+  read: function() {
+    this.a = +prompt("Введите число a:")
+    this.b = +prompt("Введите число b:")
   },
-  mass: {
-    asd: [1, {
-      qwer: [1, [1, 2, 3, [1, 2]], 3, {www: 123}],
-    }, 3],
-  }
+  sum: function() {
+    return this.a + this.b;
+  },
+  mul: function() {
+    return this.a*this.b;
+  },
 };
 
-let user2 = {};
+console.log(calculator);
 
-function deepClone(obj, clone) {
-  for (let key in obj) {
+calculator.read();
+alert( calculator.sum() );
+alert( calculator.mul() );
 
-    if (Array.isArray(obj[key])) {
+console.log(calculator);
+*/
+// ----------------------------------------------------------
 
-      let el = 0;
-      clone[key] = [];
+// Цепь вызовов
+// важность: 2
 
-      for (let key2 of obj[key]) {
+// У нас есть объект ladder (лестница), который позволяет подниматься и спускаться:
 
-        if (typeof(key2) === "object") {
-          deepClone(obj[key], clone[key]);
+// let ladder = {
+//   step: 0,
+//   up() {
+//     this.step++;
+//   },
+//   down() {
+//     this.step--;
+//   },
+//   showStep: function() { // показывает текущую ступеньку
+//     alert( this.step );
+//   }
+// };
 
-        } else {
-          clone[key][el] = obj[key][el];
-        }
+// Теперь, если нам нужно выполнить несколько последовательных вызовов, мы можем сделать это так:
 
-      }
-      el++;
+// ladder.up();
+// ladder.up();
+// ladder.down();
+// ladder.showStep(); // 1
+// ladder.down();
+// ladder.showStep(); // 0
 
-    } else if (typeof(obj[key]) === "object") {
+// Измените код методов up, down и showStep таким образом, чтобы их вызов можно было сделать по цепочке, например так:
 
-      clone[key] = {};
-      deepClone(obj[key], clone[key]);
+// ladder.up().up().down().showStep().down().showStep(); // показывает 1 затем 0
 
-    } else {
+// Такой подход широко используется в библиотеках JavaScript.
 
-      clone[key] = obj[key];
+// Открыть песочницу с тестами для задачи.
 
+/*
+
+let ladder = {
+    step: 0,
+    up() {
+      this.step++;
+      return this;
+    },
+    down() {
+      this.step--;
+      return this;
+    },
+    showStep: function() { 
+      alert( this.step );
+      return this;
     }
-  }
+  };
+ladder.up().up().down().showStep().down().showStep();
+
+console.log(ladder);
+
+*/
+
+// --------------------------------------------------------------------
+
+function User(name, lName, age) {
+  this.name = name;
+  this.lastName = lName;
+  this.age = age;
+  this.isAdmin = false;
 }
 
+let user = new User("Jack", "Smith", 30);
+let user2 = new User("Sarah", "Brown", 34);
 
-deepClone(user, user2);
 
-console.log(user.mass.asd[1].qwer[3].www);
-console.log(user2.mass.asd[1].qwer[3].www);
-
-user.mass.asd[1].qwer[3].www = 15;
-
-console.log(user.mass.asd[1].qwer[3].www);
-console.log(user2.mass.asd[1].qwer[3].www);
+alert(user.name); // Jack
+alert(user.isAdmin); // false
 
 console.log(user);
 console.log(user2);
