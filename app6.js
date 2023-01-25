@@ -188,15 +188,132 @@
 
 // Формула вычисления среднего арифметического значения: (age1 + age2 + ... + ageN) / N
 
-let vasya = { name: "Вася", age: 25 };
-let petya = { name: "Петя", age: 30 };
-let masha = { name: "Маша", age: 29 };
+// let vasya = { name: "Вася", age: 25 };
+// let petya = { name: "Петя", age: 30 };
+// let masha = { name: "Маша", age: 29 };
 
-let arr = [ vasya, petya, masha ];
+// let arr = [ vasya, petya, masha ];
 
-function getAverageAge(users) {
-    let res;
-    return res = users.reduce((acc, value) => acc + value.age, 0)/users.length;
+// function getAverageAge(users) {
+//     let res;
+//     return res = users.reduce((acc, value) => acc + value.age, 0)/users.length;
+// }
+
+// alert( getAverageAge(arr) ); // (25 + 30 + 29) / 3 = 28
+
+// ---------------------------------------------------------
+
+// Оставить уникальные элементы массива
+// важность: 4
+
+// Пусть arr – массив строк.
+
+// Напишите функцию unique(arr), которая возвращает массив, содержащий 
+// только уникальные элементы arr.
+
+// function unique(arr) {
+//   for (let key of arr) {
+//     if (!uniqueValues.includes(key)) {
+//       uniqueValues.push(key);
+//     }
+//   }
+//   return uniqueValues;
+// }
+  
+// let values = ["Hare", "Krishna", "Hare", "Krishna",
+//     "Krishna", "Krishna", "Hare", "Hare", ":-O"
+// ];
+// let uniqueValues = [];
+
+  
+// alert( unique(values) ); // Hare,Krishna,:-O
+
+// ------------------------------------------------------
+
+// Создайте объект с ключами из массива
+// важность: 4
+
+// Допустим, мы получили массив пользователей в виде {id:..., name:..., age:... }.
+
+// Создайте функцию groupById(arr), которая создаст из него объект с id в качестве ключа 
+// и элементами массива в качестве значений.
+
+// let users = [
+//   {id: 'john', name: "John Smith", age: 20},
+//   {id: 'ann', name: "Ann Smith", age: 24},
+//   {id: 'pete', name: "Pete Peterson", age: 31},
+// ];
+
+
+// function groupById(array) {
+//   return array.reduce((acc, value) => {
+//   acc[value.id] = value;
+//   return acc;
+//   }, {})
+//   }
+
+// let usersById = groupById(users);
+
+// console.log(usersById);
+
+/*
+// после вызова у нас должно получиться:
+
+usersById = {
+  john: {id: 'john', name: "John Smith", age: 20},
+  ann: {id: 'ann', name: "Ann Smith", age: 24},
+  pete: {id: 'pete', name: "Pete Peterson", age: 31},
+}
+*/
+
+// --------------------------------
+
+// Фильтрация уникальных элементов массива
+// важность: 5
+
+// Допустим, у нас есть массив arr.
+
+// Создайте функцию unique(arr), которая вернёт массив уникальных, не повторяющихся 
+// значений массива arr.
+
+// function unique(arr) {
+//   return Array.from(new Set(arr));
+// }
+  
+
+// let values = ["Hare", "Krishna", "Hare", "Krishna",
+//   "Krishna", "Krishna", "Hare", "Hare", ":-O"
+// ];
+  
+// alert( unique(values) ); // Hare,Krishna,:-
+
+// --------------------------------------------------
+
+// Отфильтруйте анаграммы
+// важность: 4
+
+// Анаграммы – это слова, у которых те же буквы в том же количестве, 
+// но они располагаются в другом порядке.
+
+let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+// function aclean(arr) {
+//   let setWard = new Set();
+//   for (let key of arr) {
+//     (setWard.add(key.toLowerCase().split("").sort().join("")));
+//   }
+//   return Array.from(setWard);
+// }
+
+function aclean(arr) {
+  let newObj = {};
+  for (let key of arr) {
+    let word = key.toLowerCase().split("").sort().join("");
+    newObj[word] = key;
+  }
+  let arr2 =[];
+  return Object.values(newObj);
 }
 
-alert( getAverageAge(arr) ); // (25 + 30 + 29) / 3 = 28
+console.log(aclean(arr));
+alert( aclean(arr) ); // "nap,teachers,ear" или "PAN,cheaters,era"
