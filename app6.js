@@ -22,7 +22,7 @@
 //         [this.a, this.sign, this.b] = str.split(" ");
 //         if (this.methods[`${this.sign}`] && !isNaN(this.a) && !isNaN(this.b)) {
 //             return this.methods[`${this.sign}`](+this.a, +this.b);
-  
+
 //         } else {
 //             console.log("Недопустимая операция или отсутствует метод.");
 //             return NaN;
@@ -158,13 +158,13 @@
 //     '321': 0,
 //     '312': 0
 //   };
-  
+
 //   for (let i = 0; i < 1000000; i++) {
 //     let array = [1, 2, 3];
 //     shuffle(array);
 //     count[array.join('')]++;
 //   }
-  
+
 //   // показать количество всех возможных вариантов
 //   for (let key in count) {
 //     console.log(`${key}: ${count[key]}`);
@@ -219,13 +219,13 @@
 //   }
 //   return uniqueValues;
 // }
-  
+
 // let values = ["Hare", "Krishna", "Hare", "Krishna",
 //     "Krishna", "Krishna", "Hare", "Hare", ":-O"
 // ];
 // let uniqueValues = [];
 
-  
+
 // alert( unique(values) ); // Hare,Krishna,:-O
 
 // ------------------------------------------------------
@@ -279,12 +279,12 @@ usersById = {
 // function unique(arr) {
 //   return Array.from(new Set(arr));
 // }
-  
+
 
 // let values = ["Hare", "Krishna", "Hare", "Krishna",
 //   "Krishna", "Krishna", "Hare", "Hare", ":-O"
 // ];
-  
+
 // alert( unique(values) ); // Hare,Krishna,:-
 
 // --------------------------------------------------
@@ -295,7 +295,7 @@ usersById = {
 // Анаграммы – это слова, у которых те же буквы в том же количестве, 
 // но они располагаются в другом порядке.
 
-let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+// let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
 
 // function aclean(arr) {
 //   let setWard = new Set();
@@ -305,15 +305,114 @@ let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
 //   return Array.from(setWard);
 // }
 
-function aclean(arr) {
-  let newObj = {};
-  for (let key of arr) {
-    let word = key.toLowerCase().split("").sort().join("");
-    newObj[word] = key;
-  }
-  let arr2 =[];
-  return Object.values(newObj);
+// function aclean(arr) {
+//   let newObj = {};
+//   for (let key of arr) {
+//     let word = key.toLowerCase().split("").sort().join("");
+//     newObj[word] = key;
+//   }
+//   let arr2 =[];
+//   return Object.values(newObj);
+// }
+
+// console.log(aclean(arr));
+// alert( aclean(arr) ); // "nap,teachers,ear" или "PAN,cheaters,era"
+
+// -------------------------------------------------------
+
+// Перебираемые ключи
+// важность: 5
+
+// Мы хотели бы получить массив ключей map.keys() в переменную и далее
+//  работать с ними, например, применить метод .push.
+
+// let map = new Map();
+
+// map.set("name", "John");
+
+// let keys = Array.from(map.keys());
+
+
+// // Error: keys.push is not a function
+// // Ошибка: keys.push -- это не функция
+// keys.push("more");
+
+// console.log(keys);
+
+// ------------------------------------------------
+// Хранение отметок "не прочитано"
+// важность: 5
+
+// Есть массив сообщений:
+
+// let messages = [
+//   {text: "Hello", from: "John"},
+//   {text: "How goes?", from: "John"},
+//   {text: "See you soon", from: "Alice"}
+// ];
+
+// let weakM = new WeakSet();
+
+// weakM.add(messages[0]);
+// weakM.add(messages[1]);
+// weakM.add(messages[0]);
+
+// console.log(weakM.has(messages[0]));
+
+// ------------------------------------------
+  
+// Хранение времени прочтения
+// важность: 5
+
+// Есть массив сообщений такой же, как и в предыдущем задании.
+
+// let messages = [
+//   { text: "Hello", from: "John" },
+//   { text: "How goes?", from: "John" },
+//   { text: "See you soon", from: "Alice" }
+// ];
+
+// let weakM = new WeakMap();
+
+// let obj0 = messages[0];
+
+// weakM.set(messages[0], new Date(2017, 1, 1));
+// weakM.set(messages[2], new Date(2017, 1, 1));
+// weakM.set(obj0, new Date(2017, 10, 10));
+
+// console.log(weakM.get(messages[0]));
+// console.log(weakM.get(messages[2]));
+// console.log(weakM.get(obj0));
+
+// ------------------------------------------------
+
+// Сумма свойств объекта
+// важность: 5
+
+// Есть объект salaries с произвольным количеством свойств, содержащих заработные платы.
+
+// Напишите функцию sumSalaries(salaries), которая возвращает сумму всех зарплат с помощью 
+
+// метода Object.values и цикла for..of.
+
+// Если объект salaries пуст, то результат должен быть 0.
+
+let salaries = {
+  "John": 100,
+  "Pete": 300,
+  "Mary": 250
+};
+
+// function sumSalaries(salaries) {
+//   let sum = 0;
+//   for (let key of Object.values(salaries)) {
+//     sum += key;
+//   }
+//   return sum;
+// }
+
+function sumSalaries(salaries) {
+  return Object.values(salaries).reduce((acc, value) => acc + value, 0);
 }
 
-console.log(aclean(arr));
-alert( aclean(arr) ); // "nap,teachers,ear" или "PAN,cheaters,era"
+alert( sumSalaries(salaries) ); // 650
