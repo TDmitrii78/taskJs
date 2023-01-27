@@ -397,22 +397,154 @@ usersById = {
 
 // Если объект salaries пуст, то результат должен быть 0.
 
-let salaries = {
-  "John": 100,
-  "Pete": 300,
-  "Mary": 250
-};
+// let salaries = {
+//   "John": 100,
+//   "Pete": 300,
+//   "Mary": 250
+// };
+
+// // function sumSalaries(salaries) {
+// //   let sum = 0;
+// //   for (let key of Object.values(salaries)) {
+// //     sum += key;
+// //   }
+// //   return sum;
+// // }
 
 // function sumSalaries(salaries) {
-//   let sum = 0;
-//   for (let key of Object.values(salaries)) {
-//     sum += key;
-//   }
-//   return sum;
+//   return Object.values(salaries).reduce((acc, value) => acc + value, 0);
 // }
 
-function sumSalaries(salaries) {
-  return Object.values(salaries).reduce((acc, value) => acc + value, 0);
-}
+// alert( sumSalaries(salaries) ); // 650
 
-alert( sumSalaries(salaries) ); // 650
+// --------------------------------------------------
+
+// // Подсчёт количества свойств объекта
+// // важность: 5
+
+// // Напишите функцию count(obj), которая возвращает количество свойств объекта:
+
+// let user = {
+//   name: 'John',
+//   age: 30
+// };
+
+// function count(eser) {
+//  return Object.keys(user).length;
+// }
+
+// alert( count(user) ); // 2
+
+// -----------------------------------------------
+
+// // Деструктурирующее присваивание
+// // важность: 5
+
+// // У нас есть объект:
+
+// let user = {
+//   name: "John",
+//   years: 30
+// };
+
+// let {name, years: age, isAdmin = false} = user;
+
+// alert( name ); // John
+// alert( age ); // 30
+// alert( isAdmin ); // false
+
+// -----------------------------------------------------
+
+// Максимальная зарплата
+// важность: 5
+
+// У нас есть объект salaries с зарплатами:
+
+// let salaries = {
+//   "John": 100,
+//   "Pete": 300,
+//   "Mary": 250
+// };
+
+// function opSalary(salaries) {
+//   let keyRes = null;
+//   let valRes = 0;
+//   for (let [key, value] of Object.entries(salaries)) {
+//     if (value > valRes) {
+//       keyRes = key;
+//       valRes = value;
+//     }
+//   }
+//   return [keyRes, valRes];
+// }
+
+// console.log(opSalary(salaries));
+
+// --------------------------------------------------------
+
+// Вычислить сумму чисел до данного
+// важность: 5
+
+// Напишите функцию sumTo(n), которая вычисляет сумму чисел 1 + 2 + ... + n.
+
+// function sumTo(n) { 
+//   if (n <= 1) {
+//     return n;
+//   } else {
+//     return n+sumTo(n-1);
+//   }
+// }
+
+// alert( sumTo(100) ); // 5050
+
+// ----------------------------------------------------------
+
+// Вычислить факториал
+// важность: 4
+
+// Факториал натурального числа – это число, умноженное на "себя минус один", 
+// затем на "себя минус два", и так далее до 1. Факториал n обозначается как n!
+
+// function factorial(n) {
+//   if (n <= 1) {
+//     return n;
+//   } else {
+//     return n*factorial(n-1);
+//   }
+// }
+
+// alert( factorial(5) ); // 120
+
+// ---------------------------------------------------------
+
+// Числа Фибоначчи
+// важность: 5
+
+// Последовательность чисел Фибоначчи определяется формулой Fn = Fn-1 + Fn-2. То есть, 
+
+// следующее число получается как сумма двух предыдущих.
+
+// Первые два числа равны 1, затем 2(1+1), затем 3(1+2), 5(2+3) 
+
+// и так далее: 1, 1, 2, 3, 5, 8, 13, 21....
+
+// Числа Фибоначчи тесно связаны с золотым сечением и множеством природных явлений вокруг нас.
+
+// Напишите функцию fib(n) которая возвращает n-е число Фибоначчи.
+
+// function fib(n) {
+//   if (n <= 1) {
+//     return n;
+//   } else {
+//     return n = fib(n -1) + fib(n - 2);
+//   }
+// }
+// alert(fib(1)); // 
+// alert(fib(2)); // 
+// alert(fib(3)); // 2
+// alert(fib(7)); // 13
+// alert(fib(20)); // 
+// // alert(fib(77)); // 5527939700884757
+
+// ----------------------------------------------------
+
