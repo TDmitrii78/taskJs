@@ -164,16 +164,59 @@
 //   return arr.join("");
 // }
 
-function duplicateEncode(word){
-  return word
-    .toLowerCase()
-    .split('')
-    .map( function (a, i, w) {
-      return w.indexOf(a) == w.lastIndexOf(a) ? '(' : ')'
-    })
-    .join('');
+// function duplicateEncode(word){
+//   return word
+//     .toLowerCase()
+//     .split('')
+//     .map( function (a, i, w) {
+//       return w.indexOf(a) == w.lastIndexOf(a) ? '(' : ')'
+//     })
+//     .join('');
+// }
+
+
+
+// console.log(duplicateEncode("un)uuaOFufbuuu"));
+
+// ----------------------------------------------------
+
+// function alphabetPosition(text) {
+//   return text.toLowerCase().split("")
+//   .filter((el) => (el.codePointAt(0) > 96) && (el.codePointAt(0) <= 122))
+//   .map(el => el.codePointAt(0)-96).join(" ");
+// }
+
+// console.log(alphabetPosition("The sunset sets at twelve o' clock."));
+
+// -----------------------------------------------------
+
+// function persistence(num) {
+//   let count = 0;
+//   for (;;) {
+//     if (+num <= 9) {
+//       return count;
+//     } else {
+//       ++count
+//       num = num.toString().split("").reduce((acc, el, index) => (index === 0) ? acc = el : acc * el, 0);
+//     }
+//   }
+// }
+// console.log(persistence(39));
+
+// -----------------------------------------------------
+
+function order(words){
+  return words.split(" ").sort((a, b) => {
+    a = a.split("").sort().join("");
+ 
+    b = b.split("").sort().join("");
+  
+    if (a > b) return +1;
+    if (a === b) return 0;
+    if (a < b) return -1;
+  })
+  .join(" ");
 }
 
-
-
-console.log(duplicateEncode("un)uuaOFufbuuu"));
+console.log(order("is2 Thi1s T4est 3a"));  //-->  "Thi1s is2 3a T4est"
+// order("4of Fo1r pe6ople g3ood th5e the2");  //-->  "Fo1r the2 g3ood 4of th5e pe6ople"
