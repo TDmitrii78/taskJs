@@ -223,4 +223,147 @@
 //   return arr;
 // }
 
-console.log(towerBuilder(5));
+// console.log(towerBuilder(5));
+
+// -------------------------------------
+
+// function high(x) {
+//   return x.split(" ")
+//   .sort((a, b) => b.split("").reduce((acc, el) => acc + el.codePointAt(0) - 96, 0) - a.split("").reduce((acc, el) => acc + el.codePointAt(0) - 96, 0))[0];
+// }
+
+// console.log(high('man i need a taxi up to ubud'));
+// console.log(high('what time are we climbing up the volcano'));
+
+// ---------------------------------------
+// const promise = new Promise((resolve, reject) => {
+//   resolve(15)
+// })
+// .then(item => item = 17)
+// .then(el => {
+//   el = 1978;
+//   console.log(promise.state)
+// })
+
+// ---------------------------------------
+
+// function generateHashtag(str) {
+//   if ((str === "") || (str.length >= 140)) {
+//     return false;
+//   }
+//   console.log(str.length);
+//   return "#" + str.trim().split(" ").map(el => el[0].toUpperCase() + el.slice(1)).join("");
+// }
+
+// console.log(generateHashtag("code" + " ".repeat(140) + "ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong Cat"));
+
+// ---------------------------------------
+
+// fetch('/article/promise-chaining/user.json')
+//   .then(response => response.json())
+//   .then(user => fetch(`https://api.github.com/users/${user.name}`))
+//   .then(response => response.json())
+//   .then(githubUser => new Promise((resolve, reject) => {
+//     let img = document.createElement('img');
+//     img.src = githubUser.avatar_url;
+//     img.className = "promise-avatar-example";
+//     document.body.append(img);
+
+//     setTimeout(() => {
+//       img.remove();
+//       resolve(githubUser);
+//     }, 3000);
+//   }))
+//   .catch(error => alert(error.message));
+
+// -----------------------------------------
+
+// async function asd() { 
+//   let url = 'https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits';
+//   let response = await fetch(url);
+//   console.log(response.headers);
+//   for (let [key, value] of response.headers) {
+//     console.log(`${key} ${value}`);
+//   }
+//   let commits = await response.json(); 
+//   alert(commits[0].author.login);
+// }
+
+// console.log(asd());
+
+// fetch('https://jsonplaceholder.typicode.com/posts', {
+//   method: 'POST',
+//   body: JSON.stringify({
+//     title: 'foo',
+//     body: 'bar',
+//     userId: 1,
+//   }),
+//   headers: {
+//     'Content-type': 'application/json; charset=UTF-8',
+//   },
+// })
+//   .then((response) => response.json())
+//   .then((json) => console.log(json));
+
+
+// let formData = new FormData();
+// formData.append('key1', 'value1');
+// formData.append('key2', 'value2');
+
+// // Список пар ключ/значение
+// for(let [name, value] of formData) {
+//   alert(`${name} = ${value}`); // key1=value1, потом key2=value2
+// }
+
+// console.log(formData);
+
+
+// -------------------------------------------------
+
+// fetch("https://earthquake.usgs.gov/fdsnws/event/1/")
+// .then(response => {
+//   console.log(response);
+// })
+
+// // -------------------------------------------------
+
+
+// Для каждого пункта:
+
+// Запрашивайте содержимое пункта у пользователя с помощью prompt.
+// Создавайте элемент <li> и добавляйте его к <ul>.
+// Продолжайте до тех пор, пока пользователь не отменит ввод (нажатием клавиши Esc или введя пустую строку).
+
+// Все элементы должны создаваться динамически.
+
+// for (;;) {
+//   let str = prompt("Введите значение");
+//   if (!str) {
+//     break;
+//   }
+//   const li = document.createElement("li");
+//   li.textContent= str
+//   const ul = document.querySelector("ul");
+//   ul.append(li);
+// }
+
+// ------------------------------------------------------------
+
+function arraysSimilar(arr1, arr2) {
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr1.sort()[i] !== arr2.sort()[i]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+const arr3 = [1, 2, 2, 3, 4],
+arr4 = [2, 1, 2, 4, 3],
+arr1 = [1, 2, 3, 4],
+arr2 = [1, 2, 3, "4"]
+
+console.log(arraysSimilar(arr1, arr2));
