@@ -318,52 +318,210 @@
 // console.log(formData);
 
 
-// -------------------------------------------------
-
-// fetch("https://earthquake.usgs.gov/fdsnws/event/1/")
-// .then(response => {
-//   console.log(response);
-// })
-
 // // -------------------------------------------------
 
+// // fetch("https://earthquake.usgs.gov/fdsnws/event/1/")
+// // .then(response => {
+// //   console.log(response);
+// // })
 
-// Для каждого пункта:
+// // // -------------------------------------------------
 
-// Запрашивайте содержимое пункта у пользователя с помощью prompt.
-// Создавайте элемент <li> и добавляйте его к <ul>.
-// Продолжайте до тех пор, пока пользователь не отменит ввод (нажатием клавиши Esc или введя пустую строку).
 
-// Все элементы должны создаваться динамически.
+// // Для каждого пункта:
 
-// for (;;) {
-//   let str = prompt("Введите значение");
-//   if (!str) {
-//     break;
+// // Запрашивайте содержимое пункта у пользователя с помощью prompt.
+// // Создавайте элемент <li> и добавляйте его к <ul>.
+// // Продолжайте до тех пор, пока пользователь не отменит ввод (нажатием клавиши Esc или введя пустую строку).
+
+// // Все элементы должны создаваться динамически.
+
+// // for (;;) {
+// //   let str = prompt("Введите значение");
+// //   if (!str) {
+// //     break;
+// //   }
+// //   const li = document.createElement("li");
+// //   li.textContent= str
+// //   const ul = document.querySelector("ul");
+// //   ul.append(li);
+// // }
+
+// // ------------------------------------------------------------
+
+// function arraysSimilar(arr1, arr2) {
+//   if (arr1.length !== arr2.length) {
+//     return false;
 //   }
-//   const li = document.createElement("li");
-//   li.textContent= str
-//   const ul = document.querySelector("ul");
-//   ul.append(li);
+//   for (let i = 0; i < arr1.length; i++) {
+//     if (arr1.sort()[i] !== arr2.sort()[i]) {
+//       return false;
+//     }
+//   }
+//   return true;
 // }
 
-// ------------------------------------------------------------
+// const arr3 = [1, 2, 2, 3, 4],
+// arr4 = [2, 1, 2, 4, 3],
+// arr1 = [1, 2, 3, 4],
+// arr2 = [1, 2, 3, "4"]
 
-function arraysSimilar(arr1, arr2) {
-  if (arr1.length !== arr2.length) {
-    return false;
-  }
-  for (let i = 0; i < arr1.length; i++) {
-    if (arr1.sort()[i] !== arr2.sort()[i]) {
-      return false;
-    }
-  }
-  return true;
-}
+// console.log(arraysSimilar(arr1, arr2));
 
-const arr3 = [1, 2, 2, 3, 4],
-arr4 = [2, 1, 2, 4, 3],
-arr1 = [1, 2, 3, 4],
-arr2 = [1, 2, 3, "4"]
+// console.log(document.documentElement.clientWidth);
 
-console.log(arraysSimilar(arr1, arr2));
+// -----------------------------------------------
+// Дочерние элементы в DOM
+// важность: 5
+
+// Для страницы:
+
+// <html>
+// <body>
+//   <div>Пользователи:</div>
+//   <ul>
+//     <li>Джон</li>
+//     <li>Пит</li>
+//   </ul>
+// </body>
+// </html>
+
+// Напишите код, как получить…
+
+//     элемент <div>?
+//     <ul>?
+//     второй <li> (с именем Пит)?
+
+// const div = document.querySelector("div");
+// const div = document.body.firstElementChild;
+// const div = document.body.childNodes[1];
+// const div = document.body.children[0];
+// console.log(div);
+// 
+
+// ---------------------------------------------------------
+
+// Вот документ с таблицей и формой.
+
+// Как найти?…
+
+//     Таблицу с id="age-table".
+//     Все элементы label внутри этой таблицы (их три).
+//     Первый td в этой таблице (со словом «Age»).
+//     Форму form с именем name="search".
+//     Первый input в этой форме.
+//     Последний input в этой форме.
+
+// Откройте страницу table.html в отдельном окне и используйте для этого браузерные инструменты разработчика.
+
+// 1)
+// console.log(document.getElementById('age-table'));
+// console.log(document.querySelector('#age-table'));
+
+// 2)
+// console.log(document.getElementById('age-table').querySelectorAll("label"));
+// console.log(document.querySelector('#age-table').querySelectorAll("label"));
+
+// 3)
+// console.log(document.querySelector('#age-table').querySelector("td"));
+
+// 4)
+// console.log(document.querySelector('form'));
+// console.log(document.querySelectorAll('form')[0]);
+// console.log(document.body.children[0]);
+
+// --------------------------------------------------------------
+
+// function missingWord(nums, str) {
+//     nums = nums.sort((a, b) => a - b);
+//     if (nums.at(-1) > str.length - 1) {
+//         return "No mission today";
+//     };
+//     let arrStr = str.replaceAll(" ","").split("");
+//     let res = [];
+//     for (let key of nums) {
+//       res.push(arrStr[key]);
+//     }
+//     return res.join("").toLowerCase();
+//   }
+
+//   console.log(missingWord([5, 0, 3], "I love you"));
+//   console.log(missingWord([29, 31, 8], "The quick brown fox jumps over the lazy dog"));
+//   console.log(missingWord([12, 4, 6], "Good Morning"));
+
+// --------------------------------------------------------------
+
+// function cyclops(n) {
+//     n = n.toString(2);
+//     let index = n.indexOf("0");
+//     let indexLast = n.lastIndexOf("0");
+//     if ((index !== indexLast) || (index === -1) || !(n % 2)){
+//         return false;
+//     }
+//     if (Math.ceil(n.length/2 - 1) === index) {
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
+
+// console.log(cyclops(549755289598));
+
+// console.log(cyclops(1));
+// console.log(cyclops(5));
+// console.log(cyclops(3));
+// console.log(cyclops(13));
+// console.log(cyclops(23));
+// console.log(cyclops(27));
+// console.log(cyclops(2015));
+// console.log(cyclops(666));
+// console.log(cyclops(42));
+
+// ------------------------------------------------
+
+// function sayHi() {
+//   alert(this.name);
+// }
+
+// let user = { name: "John" };
+// let admin = { name: "Admin" , 
+//                 sHi() {
+//                 alert(this.name)
+//             } };
+
+//используем 'call' для передачи различных объектов в качестве 'this'
+//sayHi.call( user ); // John
+//sayHi.call( admin ); // Admin
+
+//console.log(user.name);
+
+//admin.sHi.call(user);
+//sayHi.call(user);
+//let asd = admin.sHi;
+//asd.call(user);
+//admin.sHi.call(this);
+//sayHi.call(user);
+
+// --------------------------------------
+
+// let user = {
+//     firstName: "Вася",
+//     sayHi() {
+//       alert(`Привет, ${this.firstName}!`);
+//     }
+//   };
+  
+//   setTimeout(user.sayHi.call(user), 1000); // Привет, undefined!
+
+// ---------------------------------------
+
+let user = {
+    //_name: "John",
+    get name() {console.log("1")},
+    set name(value) {console.log("2")}
+  };
+
+  
+  let descriptor = Object.getOwnPropertyDescriptor(user, 'name');
+  
+  console.log(descriptor);
