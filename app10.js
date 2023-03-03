@@ -515,13 +515,87 @@
 
 // ---------------------------------------
 
-let user = {
-    //_name: "John",
-    get name() {console.log("1")},
-    set name(value) {console.log("2")}
-  };
+// let user = {
+//     //_name: "John",
+//     get name() {console.log("1")},
+//     set name(value) {console.log("2")}
+//   };
 
   
-  let descriptor = Object.getOwnPropertyDescriptor(user, 'name');
+//   let descriptor = Object.getOwnPropertyDescriptor(user, 'name');
   
-  console.log(descriptor);
+//   console.log(descriptor);
+//   arr = [];
+//   console.log(user.__proto__);
+
+// ------------------------------------------
+
+// let user = {}
+
+// function test() {
+//     console.log("test");
+// }
+
+// console.log(user.__proto__);
+// console.log(user.prototype);
+// console.log(test.__proto__);
+
+// ----------------------------------------------
+
+// function countZeros(n) {
+//     let begin;
+//     if (n % 2) {
+//         begin = 1;
+//     } else {
+//         begin = 2
+//     }
+//     let res = 1n;
+//     for (let i = begin; i <= n; i += 2) {
+//         res *= BigInt(i);
+//     }
+//     res = res.toString()
+//     let zero = 0;
+//     for (let i = res.length - 1; i >= 0; i-- ) {
+//         if (res[i] === "0") {
+//             ++zero; 
+//         } else {
+//             return zero;
+//         }
+//     }
+// }
+
+// console.log(countZeros(30));
+
+// -------------------------------------------------
+
+// function chessBoard(rows, columns) {
+//     let arrRes = [];
+//     let sign = "O";
+//     for (let i = 0; i < rows; i++) { 
+//         let arr = [];
+//         for (let j = 0; j < columns; j++) {
+//             arr.push(sign);
+//             if (j !== columns - 1) {
+//                 (sign === "X") ? sign = "O" : sign = "X";
+//             }
+//         }
+//         arrRes.push(arr);
+//         (arr[0] === "X") ? sign = "O" : sign = "X";
+//     }
+//     return arrRes;
+// }
+
+// console.dir(chessBoard(8, 4));
+
+// -------------------------------------------------
+
+function largest(n, array) {
+    return array.sort((a, b) => b - a).filter((el, i) => {
+        if (i < n) {
+            return true;
+        }
+        return false;
+    }).reverse();
+}
+
+console.log(largest(2, [7,6,5,4,3,2,1]));
