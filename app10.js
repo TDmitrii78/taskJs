@@ -589,13 +589,68 @@
 
 // -------------------------------------------------
 
-function largest(n, array) {
-    return array.sort((a, b) => b - a).filter((el, i) => {
-        if (i < n) {
-            return true;
-        }
-        return false;
-    }).reverse();
-}
+// function largest(n, array) {
+//     return array.sort((a, b) => b - a).filter((el, i) => {
+//         if (i < n) {
+//             return true;
+//         }
+//         return false;
+//     }).reverse();
+// }
 
-console.log(largest(2, [7,6,5,4,3,2,1]));
+// console.log(largest(2, [7,6,5,4,3,2,1]));
+
+// --------------------------------------------------
+
+// function geometricSequenceElements(a, r, n){
+//     let str = [];
+//     for (let i = 0; i < n; i++) {
+//         str.push(a);
+//         a = a * r;
+//     }
+//     return str.join(", ");
+//   }
+
+//   console.log(geometricSequenceElements(2, 3, 5));
+
+// ---------------------------------------------------
+
+// function solve(s){
+//     let lCase = 0;
+//     let uCase = 0;
+//     for (let i = 0; i < s.length; i++) {
+//         if ((s.codePointAt(i) >= 65) && (s.codePointAt(i) <= 90)) {
+//             uCase++;
+//         }
+//         if ((s.codePointAt(i) >= 97) && (s.codePointAt(i) <= 122)) {
+//             lCase++;
+//         }
+//     }
+//     if (uCase > lCase) {
+//         return s.toUpperCase();
+//     }
+//     return s.toLowerCase();
+// }
+
+// console.log(solve("Code"));
+
+// ----------------------------------------------------
+
+// function sumNoDuplicates(numList) {
+//      return numList.filter((el, index, arr) => {
+//         return (arr.indexOf(el) === (arr.lastIndexOf(el))) ? true : false;
+//     }).reduce((acc, el) => acc + el, 0);
+// }
+// console.log(sumNoDuplicates([0, 10, 8, 9, 7, 3, 3, 9, 3, 6, 0]));
+
+// ------------------------------------------------------
+
+const removeConsecutiveDuplicates = s => { return s.split(" ")
+.filter((el, index, arr) => {
+    if (el === arr[index + 1]) {
+        return false;
+    }
+    return true;
+}).join(" ")}
+
+console.log(removeConsecutiveDuplicates('alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta'));
