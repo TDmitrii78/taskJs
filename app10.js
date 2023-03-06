@@ -657,15 +657,49 @@
 
 // ------------------------------------------------------
 
-function capitalize(s,arr) {
-    s = s.split("");
-    arr.forEach(el => {
-        if (el <= s.length - 1) {
-            s[el] = s[el].toUpperCase();
-        }
+// function capitalize(s,arr) {
+//     s = s.split("");
+//     arr.forEach(el => {
+//         if (el <= s.length - 1) {
+//             s[el] = s[el].toUpperCase();
+//         }
+//     });
+//     return s.join("");
+//   };
+// console.log(capitalize("codewars",[1,3,5,50]));
+// console.log(capitalize("abcdef",[1,2,5]));  //,'aBCdeF')
 
-    });
-    return s.join("");
-  };
-console.log(capitalize("codewars",[1,3,5,50]));
-console.log(capitalize("abcdef",[1,2,5]));  //,'aBCdeF')
+// ------------------------------------------------------
+
+const button = document.querySelector("#test");
+button.onmousedown = e => console.log(event);
+
+const input = document.querySelector("#inp");
+
+input.addEventListener("keydown", event => console.log(event));
+
+const img = document.querySelector("#pic");
+
+
+
+
+pic.addEventListener("pointerdown", event => { 
+
+    pic.style.position = 'absolute';
+    pic.style.zIndex = 1000;
+
+    document.body.append(pic);
+
+    function handler(event) {
+        pic.style.left = event.pageX - pic.offsetWidth / 2 + 'px';
+        pic.style.top = event.pageY - pic.offsetHeight / 2 + 'px';      
+    }
+
+    document.addEventListener('pointermove', handler);
+
+    function delListner() {
+        document.removeEventListener('pointermove', handler);
+    }
+
+    pic.addEventListener("pointerup", delListner);
+})
