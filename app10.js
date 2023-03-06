@@ -645,12 +645,27 @@
 
 // ------------------------------------------------------
 
-const removeConsecutiveDuplicates = s => { return s.split(" ")
-.filter((el, index, arr) => {
-    if (el === arr[index + 1]) {
-        return false;
-    }
-    return true;
-}).join(" ")}
+// const removeConsecutiveDuplicates = s => { return s.split(" ")
+// .filter((el, index, arr) => {
+//     if (el === arr[index + 1]) {
+//         return false;
+//     }
+//     return true;
+// }).join(" ")}
 
-console.log(removeConsecutiveDuplicates('alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta'));
+// console.log(removeConsecutiveDuplicates('alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta'));
+
+// ------------------------------------------------------
+
+function capitalize(s,arr) {
+    s = s.split("");
+    arr.forEach(el => {
+        if (el <= s.length - 1) {
+            s[el] = s[el].toUpperCase();
+        }
+
+    });
+    return s.join("");
+  };
+console.log(capitalize("codewars",[1,3,5,50]));
+console.log(capitalize("abcdef",[1,2,5]));  //,'aBCdeF')
