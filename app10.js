@@ -671,35 +671,59 @@
 
 // ------------------------------------------------------
 
-const button = document.querySelector("#test");
-button.onmousedown = e => console.log(event);
+// const button = document.querySelector("#test");
+// button.onmousedown = e => console.log(event);
 
-const input = document.querySelector("#inp");
+// const input = document.querySelector("#inp");
 
-input.addEventListener("keydown", event => console.log(event));
+// input.addEventListener("keydown", event => console.log(event));
 
-const img = document.querySelector("#pic");
-
-
+// const img = document.querySelector("#pic");
 
 
-pic.addEventListener("pointerdown", event => { 
 
-    pic.style.position = 'absolute';
-    pic.style.zIndex = 1000;
 
-    document.body.append(pic);
+// pic.addEventListener("pointerdown", event => { 
 
-    function handler(event) {
-        pic.style.left = event.pageX - pic.offsetWidth / 2 + 'px';
-        pic.style.top = event.pageY - pic.offsetHeight / 2 + 'px';      
+//     pic.style.position = 'absolute';
+//     pic.style.zIndex = 1000;
+
+//     document.body.append(pic);
+
+//     pic.ondragstart = () => false
+
+//     function handler(event) {
+//         pic.style.left = event.pageX - pic.offsetWidth / 2 + 'px';
+//         pic.style.top = event.pageY - pic.offsetHeight / 2 + 'px';      
+//     }
+
+//     document.addEventListener('pointermove', handler);
+
+//     function delListner() {
+//         document.removeEventListener('pointermove', handler);
+//     }
+
+//     pic.addEventListener("pointerup", delListner);
+// })
+
+
+// ----------------------------------------------------------
+
+pic.onpointerdown = (event) => {
+    pic.ondragstart = () => false;
+
+    pic.setPointerCapture(event.pointerId);
+
+    document.onpointermove = event => {
+        pic.style.position = "absolute";
+        pic.style.left = event.pageX + "px";
+        pic.style.top = event.pageY + "px";
+    }
+    pic.onpointerup = () => {
+        document.onpointermove = null;
+        pic.onpointerup = null;
     }
 
-    document.addEventListener('pointermove', handler);
 
-    function delListner() {
-        document.removeEventListener('pointermove', handler);
-    }
 
-    pic.addEventListener("pointerup", delListner);
-})
+}
